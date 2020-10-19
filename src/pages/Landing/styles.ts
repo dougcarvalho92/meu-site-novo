@@ -62,17 +62,12 @@ export const HeaderContent = styled.div`
   }
 `;
 export const Location = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0px;
   font-size: 0.9rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: center;
   width: 100%;
-  & strong {
-    font-weight: 800;
-  }
+  font-weight: 800;
 `;
 export const ContentRoutes = styled.div`
   border-radius: 30px;

@@ -1,7 +1,11 @@
 import React from "react";
 
-
-import { FaGraduationCap, FaBriefcase, FaLaptopCode, FaCode } from "react-icons/fa";
+import {
+  FaGraduationCap,
+  FaBriefcase,
+  FaLaptopCode,
+  FaCode,
+} from "react-icons/fa";
 import logoImg from "../../images/logo.svg";
 
 import {
@@ -12,7 +16,7 @@ import {
   ContentWrapper,
   ContentRoutes,
   HeaderContent,
-  PerfilImage
+  PerfilImage,
 } from "./styles";
 
 const Landing: React.FC = () => {
@@ -20,8 +24,11 @@ const Landing: React.FC = () => {
     <LandingContainer>
       <ContentWrapper>
         <HeaderContent>
-        <PerfilImage  src={logoImg} alt="Douglas Carvalho" /> 
-        <h1>Douglas Carvalho</h1>
+          <PerfilImage src={logoImg} alt="Douglas Carvalho" />
+          <h1>Douglas Carvalho</h1>
+          <Location>
+            Rio de Janeiro / Niterói
+          </Location>
         </HeaderContent>
 
         <Main>
@@ -31,10 +38,7 @@ const Landing: React.FC = () => {
             mobile.
           </p>
         </Main>
-        <Location>
-          <strong>Rio de Janeiro</strong>
-          <span>Niterói</span>
-        </Location>
+
         <ContentRoutes>
           <EnterApp to="/experience">
             <FaBriefcase size={26} color="rgba(0,0,0,0.6)" />
@@ -42,7 +46,7 @@ const Landing: React.FC = () => {
           <EnterApp to="/app">
             <FaGraduationCap size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-          <EnterApp to="/app" >
+          <EnterApp to="/app">
             <FaCode size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
           <EnterApp to="/app">
