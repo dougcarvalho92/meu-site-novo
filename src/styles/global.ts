@@ -12,7 +12,7 @@ export default createGlobalStyle`
     color: #fff;
   background: #ebf2f5;
   }
-  body html #root {
+  body html :root {
     height: 100%;
   }
   body,

@@ -1,13 +1,9 @@
 import styled from "styled-components";
 
 export const AppSidebar = styled.aside`
-  position: fixed;
-  height: 100%;
-  padding: 32px 24px;
+  padding: 10px 24px;
   background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
-
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
@@ -32,5 +28,16 @@ export const AppSidebar = styled.aside`
   footer a:hover,
   footer button:hover {
     background: #17d6eb;
+  }
+  @media (min-width: 767px) {
+    position: fixed;
+    height: 100%;
+    padding: 32px 24px;
+    background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 `;

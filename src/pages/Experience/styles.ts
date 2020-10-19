@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ExperienceContainer = styled.div`
   display: flex;
-  padding: 20px 10px 20px 107px;
+  padding: 24px;
   main {
     flex: 1;
   }
