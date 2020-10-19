@@ -9,7 +9,6 @@ function Routes() {
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/experience"  component={Experience} />
-
       </Switch>
     </BrowserRouter>
   );
