@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
 export const LandingContainer = styled.div`
   background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
   width: 100vw;
@@ -16,7 +15,6 @@ export const ContentWrapper = styled.div`
   justify-content: space-between;
   padding: 30px;
 `;
-
 export const Main = styled.div`
   max-width: 450px;
   h2 {
@@ -47,6 +45,11 @@ export const Main = styled.div`
 export const PerfilImage = styled.img`
   width: 80px;
   height: 80px;
+
+  @media screen and(min-width: 767px){
+    width: 180px;
+  height: 180px;
+  } 
 `;
 
 export const HeaderContent = styled.div`
@@ -75,7 +78,6 @@ export const ContentRoutes = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-
 export const EnterApp = styled(Link)`
   width: 60px;
   height: 60px;
@@ -91,3 +93,12 @@ export const EnterApp = styled(Link)`
     background: #96feff;
   }
 `;
+
+export const ListSkills = styled.div`
+margin-top: 24px;
+display: grid;
+justify-content: center;
+align-items: center;
+grid-template-columns: repeat(9, 1fr );
+gap: 10px;
+`

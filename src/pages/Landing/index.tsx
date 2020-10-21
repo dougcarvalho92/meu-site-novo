@@ -4,8 +4,15 @@ import {
   FaGraduationCap,
   FaBriefcase,
   FaLaptopCode,
-  FaCode,
+  FaReact,
+  FaNodeJs,
+  FaPhp,
+  FaWordpress,
+  FaSass,
+  
 } from "react-icons/fa";
+import { IoLogoIonic, IoLogoJavascript, IoLogoHtml5, IoLogoCss3 } from 'react-icons/io';
+
 import logoImg from "../../images/logo.svg";
 
 import {
@@ -17,6 +24,7 @@ import {
   ContentRoutes,
   HeaderContent,
   PerfilImage,
+  ListSkills,
 } from "./styles";
 
 const Landing: React.FC = () => {
@@ -37,19 +45,34 @@ const Landing: React.FC = () => {
             Bacharel em sistemas de informação e entusiasta do desenvolvimento
             mobile.
           </p>
+          <ListSkills>
+            <FaReact size={26} color="#fff" />
+            <FaNodeJs size={26} color="#fff" />
+            <IoLogoIonic size={26} color="#fff" />
+            <IoLogoJavascript size={26} color="#fff" />
+            <IoLogoHtml5 size={26} color="#fff" />
+            <IoLogoCss3 size={26} color="#fff" />
+            <FaPhp size={26} color="#fff" />
+            <FaWordpress size={26} color="#fff" />
+            <FaSass size={26} color="#fff" />
+
+          </ListSkills>
+
         </Main>
 
         <ContentRoutes>
           <EnterApp to="/experience">
+
             <FaBriefcase size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-          <EnterApp to="/app">
+
+          <EnterApp to="/education">
             <FaGraduationCap size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-          <EnterApp to="/app">
+          {/* <EnterApp to="/app">
             <FaCode size={26} color="rgba(0,0,0,0.6)" />
-          </EnterApp>
-          <EnterApp to="/app">
+          </EnterApp> */}
+          <EnterApp to="/courses">
             <FaLaptopCode size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
         </ContentRoutes>

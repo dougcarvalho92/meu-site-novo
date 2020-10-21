@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-
-
 export const Details = styled.div`
-
-
   @media (min-width: 767px) {
     padding: 80px;
   }
