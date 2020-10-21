@@ -9,7 +9,7 @@ import {
   FaPhp,
   FaWordpress,
   FaSass,
-  
+
 } from "react-icons/fa";
 import { IoLogoIonic, IoLogoJavascript, IoLogoHtml5, IoLogoCss3 } from 'react-icons/io';
 
@@ -19,10 +19,9 @@ import {
   Main,
   LandingContainer,
   EnterApp,
-  Location,
   ContentWrapper,
-  ContentRoutes,
-  HeaderContent,
+  Footer,
+  Header,
   PerfilImage,
   ListSkills,
 } from "./styles";
@@ -31,16 +30,16 @@ const Landing: React.FC = () => {
   return (
     <LandingContainer>
       <ContentWrapper>
-        <HeaderContent>
+        <Header>
           <PerfilImage src={logoImg} alt="Douglas Carvalho" />
-          <h1>Douglas Carvalho</h1>
-          <Location>
+          <h2>Douglas Carvalho</h2>
+          <span>
             Rio de Janeiro / Niterói
-          </Location>
-        </HeaderContent>
+          </span>
+        </Header>
 
         <Main>
-          <h2>Desenvolvedor Front-end</h2>
+          <h1>Desenvolvedor Front-end</h1>
           <p>
             Bacharel em sistemas de informação e entusiasta do desenvolvimento
             mobile.
@@ -55,27 +54,21 @@ const Landing: React.FC = () => {
             <FaPhp size={26} color="#fff" />
             <FaWordpress size={26} color="#fff" />
             <FaSass size={26} color="#fff" />
-
           </ListSkills>
 
         </Main>
 
-        <ContentRoutes>
+        <Footer>
           <EnterApp to="/experience">
-
             <FaBriefcase size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-
           <EnterApp to="/education">
             <FaGraduationCap size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-          {/* <EnterApp to="/app">
-            <FaCode size={26} color="rgba(0,0,0,0.6)" />
-          </EnterApp> */}
           <EnterApp to="/courses">
             <FaLaptopCode size={26} color="rgba(0,0,0,0.6)" />
           </EnterApp>
-        </ContentRoutes>
+        </Footer>
       </ContentWrapper>
     </LandingContainer>
   );
