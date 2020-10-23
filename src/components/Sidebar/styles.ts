@@ -11,7 +11,6 @@ export const AppSidebar = styled.aside`
   img {
     width: 48px;
   }
-
   footer a,
   footer button {
     width: 48px;
@@ -25,20 +24,21 @@ export const AppSidebar = styled.aside`
     justify-content: center;
     align-items: center;
   }
-
   footer a:hover,
   footer button:hover {
     background: #17d6eb;
   }
-  @media (min-width: 767px) {
-    position: fixed;
-    height: 100%;
-    padding: 32px 24px;
-    background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
 
-    display: flex;
+  @media (min-width: 768px) {
+    height: 100vh;
+    padding: 32px 24px;
+    width: 80px;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    float: left;
+  }
+
+  @media (min-width: 1440px) {
   }
 `;

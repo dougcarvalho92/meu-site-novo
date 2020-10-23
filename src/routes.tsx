@@ -7,7 +7,7 @@ import Landing from "./pages/Landing";
 
 function Routes() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter >
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/experience" component={Experience} />

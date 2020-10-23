@@ -12,13 +12,13 @@ import {
 
 } from "react-icons/fa";
 import { IoLogoIonic, IoLogoJavascript, IoLogoHtml5, IoLogoCss3 } from 'react-icons/io';
+import { Link } from "react-router-dom";
 
 import logoImg from "../../images/logo.svg";
 
 import {
   Main,
   LandingContainer,
-  EnterApp,
   ContentWrapper,
   Footer,
   Header,
@@ -59,15 +59,15 @@ const Landing: React.FC = () => {
         </Main>
 
         <Footer>
-          <EnterApp to="/experience">
+          <Link to="/experience">
             <FaBriefcase size={26} color="rgba(0,0,0,0.6)" />
-          </EnterApp>
-          <EnterApp to="/education">
+          </Link>
+          <Link to="/education">
             <FaGraduationCap size={26} color="rgba(0,0,0,0.6)" />
-          </EnterApp>
-          <EnterApp to="/courses">
+          </Link>
+          <Link to="/courses">
             <FaLaptopCode size={26} color="rgba(0,0,0,0.6)" />
-          </EnterApp>
+          </Link>
         </Footer>
       </ContentWrapper>
     </LandingContainer>

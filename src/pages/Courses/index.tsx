@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CardList from "../../components/CardList";
 import PageContainer from "../../components/PageContainer";
 import useDebounce from "../../hooks/useDebounce";
 import api from "../../services/api";
@@ -12,6 +13,7 @@ interface CourseProps {
     id: string;
     company: string;
     name: string;
+    startsAt: string;
     endsAt: string;
     type: string;
     certificate: string;
@@ -52,20 +54,14 @@ const Course: React.FC = () => {
     }
     return (
         <PageContainer loading={loading}>
-            <main>
-                <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
-                <CoursesList>
-                    {courses.map((experience, index) =>
-                        <CourseItem>
-                            <h4>{experience.type} - {experience.name}</h4>
-                            <p>{experience.company}</p>
-                        </CourseItem>
+            <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
 
-                    )}
-                    {selectedPage <= pagesCount && <button onClick={handleLoadMore}>Carregar mais</button>}
+            <CardList data={courses} type="course"/>
 
-                </CoursesList>
-            </main>
+            {selectedPage <= pagesCount && <button onClick={handleLoadMore}>Carregar mais</button>}
+
+
+
         </PageContainer>
     );
 };

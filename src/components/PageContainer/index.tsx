@@ -16,7 +16,8 @@ const PageContainer: React.FC<PageContainerProps> = ({ children, loading = false
   }
   return <>
     <Sidebar />
-    <Container>{children}</Container>
+    <Container><main>
+      {children}</main></Container>
   </>
 
 }

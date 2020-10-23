@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 export const LandingContainer = styled.div`
   background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
@@ -60,14 +59,25 @@ export const Main = styled.div`
     font-size: 0.8rem;
     text-align: center;
   }
-  @media (min-width: 767px) {
+
+  @media (min-width: 768px){
+    h1 {
+      font-size: 3.75rem;
+      font-weight: 900;
+      line-height: 3.375rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
     h1 {
       font-size: 4.75rem;
-      font-weight: 900;
       line-height: 4.375rem;
     }
     p {
-      margin-top: 40px;
       font-size: 1.5rem;
       line-height: 2rem;
     }
@@ -77,9 +87,14 @@ export const PerfilImage = styled.img`
   width: 80px;
   height: 80px;
 
-  @media (min-width: 767px) {
-    width: 150px;
+  @media (min-width: 768px){
+    width: 100px;
+    height: 100px;
+  }
+
+  @media (min-width: 1440px) {
     height: 150px;
+    width: 150px;
   }
 `;
 export const Footer = styled.div`
@@ -87,25 +102,35 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-export const EnterApp = styled(Link)`
-  width: 60px;
-  height: 60px;
-  background: #ffd666;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-  margin: 5px;
 
-  &:hover {
-    background: #96feff;
+  a {
+    width: 60px;
+    height: 60px;
+    background: #ffd666;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    margin: 5px;
+
+    &:hover {
+      background: #96feff;
+    }
   }
 
-  @media(min-width: 768px) {
-    width: 80px;
-  height: 80px;
+  @media (min-width: 768px){
+    a {
+      width: 60px;
+      height: 60px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    a {
+      width: 80px;
+      height: 80px;
+    }
   }
 `;
 export const ListSkills = styled.div`
@@ -115,10 +140,18 @@ export const ListSkills = styled.div`
   align-items: center;
   grid-template-columns: repeat(9, 1fr);
   gap: 10px;
-  @media (min-width: 767px) {
+
+  @media (min-width: 768px){
     svg {
-      height: 50px;
-      width: 50px;
+      height: 30px;
+      width: 30px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    svg {
+      height: 60px;
+      width: 60px;
     }
   }
 `;
