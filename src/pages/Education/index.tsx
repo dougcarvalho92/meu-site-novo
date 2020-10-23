@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Loading from '../../components/Loading';
 import PageContainer from '../../components/PageContainer';
 import api from '../../services/api';
 import { DateTime, Detail, Details, DetailContent } from './styles';
