@@ -28,21 +28,20 @@ const Course: React.FC = () => {
 
     useEffect(() => {
         setLoading(true);
-        async function FilterCourses() {
-            const filteredCourses = await api.get(`/courses/?${total > 0 ? "&limit=" + total : ""}`)
-                .then((result) => {
-                    setPagesCount(result.data.pages)
-                    setTotal(result.data.total);
-                    return result.data.docs
-                });
-            filteredCourses.filter((course: CourseProps) => course.name.toLocaleLowerCase().includes(searchInput));
-            setCourses(filteredCourses);
-
-            setLoading(false);
-        }
         FilterCourses();
+        setLoading(false);
     }, [filteredInput])
 
+    async function FilterCourses() {
+        const filteredCourses = await api.get(`/courses/?${total > 0 ? "&limit=" + total : ""}`)
+            .then((result) => {
+                setPagesCount(result.data.pages)
+                setTotal(result.data.total);
+                return result.data.docs
+            });
+        filteredCourses.filter((course: CourseProps) => course.name.toLocaleLowerCase().includes(searchInput));
+        setCourses(filteredCourses);
+    }
     async function handleLoadMore() {
         if (selectedPage <= pagesCount) {
             setSelectedPage(selectedPage + 1);
@@ -64,7 +63,7 @@ const Course: React.FC = () => {
 
                     )}
                     {selectedPage <= pagesCount && <button onClick={handleLoadMore}>Carregar mais</button>}
-                    
+
                 </CoursesList>
             </main>
         </PageContainer>
