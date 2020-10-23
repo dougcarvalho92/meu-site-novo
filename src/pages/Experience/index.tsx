@@ -22,18 +22,21 @@ interface ExperienceProps {
 }
 
 const Experience: React.FC = () => {
-  const [experiences, setExperiences] = useState<ExperienceProps[]>();
+  const [experiences, setExperiences] = useState<ExperienceProps[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    try {
-      api.get("/experiences").then((result) => {
+    setLoading(true);
+    async function LoadExperiences() {
+      await api.get("/experiences").then((result) => {
         setExperiences(result.data.docs);
       });
-    } catch (error) {
-      console.log(error);
+      setLoading(false);
     }
-
+    LoadExperiences();
   }, []);
+
+
 
   const handleFormatDate = (data: string) => {
     const year = new Date(data).getFullYear();
@@ -45,15 +48,8 @@ const Experience: React.FC = () => {
     );
   };
 
-  if (!experiences) {
-    return (
-      <PageContainer>
-        <Loading />
-      </PageContainer>
-    );
-  }
   return (
-    <PageContainer>
+    <PageContainer loading={loading}>
       <main>
         <Details>
           {experiences.map((experience) => {

@@ -21,4 +21,14 @@ input,
 textarea {
   font: 600 18px Nunito, sans-serif;
 }
+
+input{
+  border: none;
+  border-radius: 10px;
+  height: 32px;
+  padding: 24px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #d3e2e5;
+}
 `;

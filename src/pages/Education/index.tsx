@@ -13,12 +13,19 @@ interface EducationProps {
 }
 
 const Education: React.FC = () => {
-  const [educations, setEducations] = useState<EducationProps[]>();
+  const [educations, setEducations] = useState<EducationProps[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    api.get("/educations").then((result) => {
-      setEducations(result.data.docs);
-    });
+    setLoading(true);
+    async function LoadEducations() {
+      await api.get("/educations").then((result) => {
+        setEducations(result.data.docs);
+      });
+      setLoading(false);
+    }
+    LoadEducations();
+
   }, []);
 
   const handleFormatDate = (data: string) => {
@@ -31,40 +38,29 @@ const Education: React.FC = () => {
     );
   };
 
-  if (!educations) {
-    return (
-
-      <PageContainer>
-        <Loading />
-      </PageContainer>
-
-    );
-  }
   return (
-    <>
-
-      <PageContainer>
-        <main>
-          <Details>
-            {educations.map((education) => {
-              return (
-                <Detail key={education.id}>
-                  <DateTime>
-                    {handleFormatDate(education.startsAt)} /
+    <PageContainer loading={loading}>
+      <main>
+        <Details>
+          {educations.map((education) => {
+            return (
+              <Detail key={education.id}>
+                <DateTime>
+                  {handleFormatDate(education.startsAt)} /
                     {handleFormatDate(education.endsAt)}
-                  </DateTime>
-                  <DetailContent>
-                    <h1>{education.name}</h1>
-                    <h2>{education.company}</h2>
+                </DateTime>
+                <DetailContent>
+                  <h1>{education.name}</h1>
+                  <h2>{education.company}</h2>
 
-                  </DetailContent>
-                </Detail>
-              );
-            })}
-          </Details>
-        </main>
-      </PageContainer>
-    </>
+                </DetailContent>
+              </Detail>
+            );
+          })}
+        </Details>
+      </main>
+    </PageContainer>
+
   );
 }
 

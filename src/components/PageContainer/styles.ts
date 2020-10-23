@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
-display: flex;
-padding: 24px;
+  display: flex;
+  padding: 24px;
 
-main {
-  flex: 1;
-}
+  main {
+    margin-top: 80px;
+    flex: 1;
+  }
 `;

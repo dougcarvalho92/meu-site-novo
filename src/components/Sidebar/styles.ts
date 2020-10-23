@@ -6,7 +6,8 @@ export const AppSidebar = styled.aside`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  position: fixed;
+  width: 100%;
   img {
     width: 48px;
   }

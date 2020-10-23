@@ -1,67 +1,71 @@
 import React, { useEffect, useState } from "react";
-import Loading from "../../components/Loading";
 import PageContainer from "../../components/PageContainer";
+import useDebounce from "../../hooks/useDebounce";
 import api from "../../services/api";
 
 import {
-    Details,
-    DetailContent,
-    Detail,
-    DateTime,
+    CoursesList,
+    CourseItem
 } from "./styles";
 
 interface CourseProps {
-    startsAt: string;
     id: string;
-    createdAt: string;
     company: string;
     name: string;
-    finishAt: string;
+    endsAt: string;
     type: string;
     certificate: string;
 }
 
 const Course: React.FC = () => {
-    const [experiences, setCourses] = useState<CourseProps[]>();
+    const [courses, setCourses] = useState<CourseProps[]>([]);
+    const [searchInput, setSearchInput] = useState("");
+    const filteredInput = useDebounce(searchInput, 2000);
+    const [total, setTotal] = useState<number>(0);
+    const [loading, setLoading] = useState(false);
+    const [selectedPage, setSelectedPage] = useState(1);
+    const [pagesCount, setPagesCount] = useState(0);
 
     useEffect(() => {
-        try {
-            api.get("/courses").then((result) => {
-                setCourses(result.data.docs);
-            });
-        } catch (error) {
-            console.log(error);
+        setLoading(true);
+        async function FilterCourses() {
+            const filteredCourses = await api.get(`/courses/?${total > 0 ? "&limit=" + total : ""}`)
+                .then((result) => {
+                    setPagesCount(result.data.pages)
+                    setTotal(result.data.total);
+                    return result.data.docs
+                });
+            filteredCourses.filter((course: CourseProps) => course.name.toLocaleLowerCase().includes(searchInput));
+            setCourses(filteredCourses);
+
+            setLoading(false);
+        }
+        FilterCourses();
+    }, [filteredInput])
+
+    async function handleLoadMore() {
+        if (selectedPage <= pagesCount) {
+            setSelectedPage(selectedPage + 1);
+            const newPage = await api.get(`/courses/?page=${selectedPage + 1}`).then(result => result.data.docs);
+            setCourses([...courses, ...newPage]);
         }
 
-    }, []);
-
-
-
-    if (!experiences) {
-        return (
-            <PageContainer>
-                <Loading />
-            </PageContainer>
-        );
     }
     return (
-        <PageContainer>
+        <PageContainer loading={loading}>
             <main>
-                <Details>
-                    {experiences.map((experience) => {
-                        return (
-                            <Detail key={experience.id}>
-                                <DateTime>
-                                    {experience.finishAt}
-                                </DateTime>
-                                <DetailContent>
-                                    <h1>{experience.name}</h1>
-                                    <h2>{experience.company}</h2>
-                                </DetailContent>
-                            </Detail>
-                        );
-                    })}
-                </Details>
+                <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
+                <CoursesList>
+                    {courses.map((experience, index) =>
+                        <CourseItem>
+                            <h4>{experience.type} - {experience.name}</h4>
+                            <p>{experience.company}</p>
+                        </CourseItem>
+
+                    )}
+                    {selectedPage <= pagesCount && <button onClick={handleLoadMore}>Carregar mais</button>}
+                    
+                </CoursesList>
             </main>
         </PageContainer>
     );
