@@ -6,7 +6,8 @@ import api from "../../services/api";
 
 import {
     CoursesList,
-    CourseItem
+    CourseItem,
+    LoadMore
 } from "./styles";
 
 interface CourseProps {
@@ -56,9 +57,9 @@ const Course: React.FC = () => {
         <PageContainer loading={loading}>
             <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
 
-            <CardList data={courses} type="course"/>
+            <CardList data={courses} type="course" />
 
-            {selectedPage <= pagesCount && <button onClick={handleLoadMore}>Carregar mais</button>}
+            {selectedPage <= pagesCount && <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>}
 
 
 

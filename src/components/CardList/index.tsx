@@ -36,7 +36,7 @@ const handleFormatDate = (data: string) => {
 const handleCheckType = (type: string, item: Item) => {
     switch (type) {
         case "course": {
-            return <div><span>{item.type}</span> <span>{item.endsAt}</span></div>
+            return <div><span>{item.startsAt}</span> <span>{item.endsAt}</span></div>
         }
         default: {
             return <div>{handleFormatDate(item.endsAt)} {handleFormatDate(item.startsAt)}</div>

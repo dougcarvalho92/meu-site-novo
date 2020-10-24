@@ -18,3 +18,21 @@ export const CourseItem = styled.div`
     font-size: 8px;
   }
 `;
+
+export const LoadMore = styled.button`
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 15px 32px;
+  border-radius:20px;
+  color: #4d6f80;
+  border: none;
+  align-self: center;
+  transition: background-color .3s;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  &:hover {
+    background-color: #16cdd6;
+    color: #fff;
+  }
+`;
