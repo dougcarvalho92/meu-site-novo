@@ -5,8 +5,6 @@ import useDebounce from "../../hooks/useDebounce";
 import api from "../../services/api";
 
 import {
-    CoursesList,
-    CourseItem,
     LoadMore
 } from "./styles";
 
@@ -55,7 +53,7 @@ const Course: React.FC = () => {
     }
     return (
         <PageContainer loading={loading}>
-            <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />
+            {/* <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} /> */}
 
             <CardList data={courses} type="course" />
 

@@ -45,7 +45,6 @@ const handleCheckType = (type: string, item: Item) => {
 }
 
 const CardList: React.FC<CardProps> = ({ type, data }) => {
-
     return <Details>
         {data.map((item) => {
             return (
