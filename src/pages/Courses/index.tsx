@@ -21,43 +21,44 @@ interface CourseProps {
 const Course: React.FC = () => {
     const [courses, setCourses] = useState<CourseProps[]>([]);
     const [searchInput, setSearchInput] = useState("");
-    const filteredInput = useDebounce(searchInput, 2000);
-    const [total, setTotal] = useState<number>(0);
-    const [loading, setLoading] = useState(false);
+    const filteredInput = useDebounce(searchInput, 1000);
+    const [loading, setLoading] = useState(true);
     const [selectedPage, setSelectedPage] = useState(1);
     const [pagesCount, setPagesCount] = useState(0);
 
     useEffect(() => {
         setLoading(true);
+        async function FilterCourses() {
+            await api.get(`/courses/?search=${filteredInput}`)
+                .then((result) => {
+                    setPagesCount(result.data.pages)
+                    setCourses(result.data.docs);
+                    setLoading(false);
+                });
+        }
         FilterCourses();
-        setLoading(false);
+
     }, [filteredInput])
 
-    async function FilterCourses() {
-        const filteredCourses = await api.get(`/courses/?${total > 0 ? "&limit=" + total : ""}`)
-            .then((result) => {
-                setPagesCount(result.data.pages)
-                setTotal(result.data.total);
-                return result.data.docs
-            });
-        filteredCourses.filter((course: CourseProps) => course.name.toLocaleLowerCase().includes(searchInput));
-        setCourses(filteredCourses);
-    }
+
     async function handleLoadMore() {
+        setLoading(true);
         if (selectedPage <= pagesCount) {
             setSelectedPage(selectedPage + 1);
-            const newPage = await api.get(`/courses/?page=${selectedPage + 1}`).then(result => result.data.docs);
+            const newPage = await api.get(`/courses/?search=${filteredInput}&page=${selectedPage + 1}`).then(result => result.data.docs);
             setCourses([...courses, ...newPage]);
+            setLoading(false);
+            window.scrollTo(0,document.body.scrollHeight);
         }
 
     }
     return (
         <PageContainer loading={loading}>
-            {/* <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} /> */}
+            {!loading && <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />}
 
             <CardList data={courses} type="course" />
 
-            {selectedPage <= pagesCount && <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>}
+            {selectedPage < pagesCount && <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>}
 
 
 

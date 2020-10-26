@@ -46,9 +46,9 @@ const handleCheckType = (type: string, item: Item) => {
 
 const CardList: React.FC<CardProps> = ({ type, data }) => {
     return <Details>
-        {data.map((item) => {
+        {data.map((item, index) => {
             return (
-                <Detail key={item.id}>
+                <Detail key={index}>
                     <DateTime>
                         {handleCheckType(type, item)}
                     </DateTime>

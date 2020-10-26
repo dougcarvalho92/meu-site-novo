@@ -40,7 +40,7 @@ export const LoadMore = styled.button`
 
   @media (min-width: 768px) {
     width: 30%;
-    margin: 10px auto;
+    margin: 20px auto;
   }
 
   @media (min-width: 1440px) {

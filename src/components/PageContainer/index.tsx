@@ -1,6 +1,8 @@
 import React from 'react';
 import Loading from '../Loading';
 
+
+
 import Sidebar from '../Sidebar';
 
 import { Container } from './styles';
@@ -10,16 +12,11 @@ interface PageContainerProps {
 }
 
 const PageContainer: React.FC<PageContainerProps> = ({ children, loading = false }) => {
+  return <div><Sidebar /><Container>{
+    loading ? <Loading /> : <main>{children}</main>
 
-  if (loading) {
-    return <Loading />
-  }
-  return <>
-    <Sidebar />
-    <Container><main>
-      {children}</main></Container>
-  </>
-
+  }</Container></div>
 }
+
 
 export default PageContainer;

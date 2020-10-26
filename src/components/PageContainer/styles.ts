@@ -9,9 +9,12 @@ export const Container = styled.div`
     padding: 24px;
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     main {
       margin-top: 0px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
     }
   }
 
