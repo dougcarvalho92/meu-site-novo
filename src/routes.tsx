@@ -10,7 +10,7 @@ function Routes() {
   
 
   return (
-    <BrowserRouter >
+    <BrowserRouter basename="/" >
       <Switch>
         <Route path="/" exact component={Landing} />
         <Route path="/experience" component={Experience} />
