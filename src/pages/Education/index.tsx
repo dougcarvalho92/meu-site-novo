@@ -33,7 +33,7 @@ const Education: React.FC = () => {
   return (
     <PageContainer loading={loading}>
 
-      <CardList data={educations} type="educations"/>
+      <CardList data={educations} />
 
     </PageContainer>
 

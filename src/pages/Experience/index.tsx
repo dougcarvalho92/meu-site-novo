@@ -32,7 +32,7 @@ const Experience: React.FC = () => {
   return (
     <PageContainer loading={loading}>
 
-        <CardList data={experiences} type="experiences"/>
+        <CardList data={experiences}/>
  
     </PageContainer>
   );

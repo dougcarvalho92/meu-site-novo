@@ -48,7 +48,7 @@ const Course: React.FC = () => {
             const newPage = await api.get(`/courses/?search=${filteredInput}&page=${selectedPage + 1}`).then(result => result.data.docs);
             setCourses([...courses, ...newPage]);
             setLoading(false);
-            window.scrollTo(0,document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
         }
 
     }
@@ -56,7 +56,7 @@ const Course: React.FC = () => {
         <PageContainer loading={loading}>
             {!loading && <input type="text" placeholder="Procurar Curso" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} />}
 
-            <CardList data={courses} type="course" />
+            <CardList data={courses} />
 
             {selectedPage < pagesCount && <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>}
 

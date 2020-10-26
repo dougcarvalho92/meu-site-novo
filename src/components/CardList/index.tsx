@@ -20,7 +20,7 @@ interface Item {
 }
 
 interface CardProps {
-    type: string;
+
     data: Array<Item>
 }
 
@@ -33,24 +33,14 @@ const handleFormatDate = (data: string) => {
         </div>
     );
 };
-const handleCheckType = (type: string, item: Item) => {
-    switch (type) {
-        case "course": {
-            return <div><span>{item.startsAt}</span> <span>{item.endsAt}</span></div>
-        }
-        default: {
-            return <div>{handleFormatDate(item.endsAt)} {handleFormatDate(item.startsAt)}</div>
-        }
-    }
-}
 
-const CardList: React.FC<CardProps> = ({ type, data }) => {
+const CardList: React.FC<CardProps> = ({ data }) => {
     return <Details>
         {data.map((item, index) => {
             return (
                 <Detail key={index}>
                     <DateTime>
-                        {handleCheckType(type, item)}
+                       <div> {handleFormatDate(item.endsAt)} {handleFormatDate(item.startsAt)}</div>
                     </DateTime>
                     <DetailContent>
                         <h1>{item.name}</h1>
