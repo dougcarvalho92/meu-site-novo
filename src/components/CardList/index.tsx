@@ -6,6 +6,7 @@ import {
     DetailContent,
     Detail,
     DateTime,
+    DetailFooter
 } from "./styles";
 
 interface Item {
@@ -40,13 +41,15 @@ const CardList: React.FC<CardProps> = ({ data }) => {
             return (
                 <Detail key={index}>
                     <DateTime>
-                       <div> {handleFormatDate(item.endsAt)} {handleFormatDate(item.startsAt)}</div>
+                        <div> {handleFormatDate(item.endsAt)} {handleFormatDate(item.startsAt)}</div>
                     </DateTime>
                     <DetailContent>
                         <h1>{item.name}</h1>
                         <h2>{item.company}</h2>
                         <p>{item.description}</p>
                     </DetailContent>
+                    {item.certificate && <DetailFooter href={item.certificate} target="_blank">Certificado</DetailFooter>}
+
                 </Detail>
             );
         })}</Details>

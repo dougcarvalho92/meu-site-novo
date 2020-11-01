@@ -13,6 +13,8 @@ export const Detail = styled.div`
   background: #ffffff;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   + div {
     margin-top: 20px;
   }
@@ -60,5 +62,19 @@ export const DetailContent = styled.div`
     p {
       line-height: 24px;
     }
+  }
+`;
+export const DetailFooter = styled.a`
+  background-color: #16cdd6;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px 24px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  color:#fff;
+  &:hover {
+    background-color:#12AFCB;
   }
 `;
