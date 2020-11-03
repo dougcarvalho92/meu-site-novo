@@ -10,8 +10,6 @@ http://douglascarvalho.netlify.app/
 
 
 ## 🚀 Tech
-
-Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [React](https://pt-br.reactjs.org/)
 - [Axios](https://github.com/axios/axios)
 - [Typescript](https://www.typescriptlang.org/)
