@@ -1,5 +1,15 @@
 import React from "react";
-
+import {
+  Main,
+  LandingContainer,
+  ContentWrapper,
+  Footer,
+  Header,
+  PerfilImage,
+  ListSkills,
+  SocialLink,
+  ListSocialMedia
+} from "./styles";
 import {
   FaGraduationCap,
   FaBriefcase,
@@ -9,22 +19,18 @@ import {
   FaPhp,
   FaWordpress,
   FaSass,
+  FaUser,
+  FaLinkedin
 
 } from "react-icons/fa";
+
 import { IoLogoIonic, IoLogoJavascript, IoLogoHtml5, IoLogoCss3 } from 'react-icons/io';
+
 import { Link } from "react-router-dom";
 
 import logoImg from "../../images/logo.svg";
 
-import {
-  Main,
-  LandingContainer,
-  ContentWrapper,
-  Footer,
-  Header,
-  PerfilImage,
-  ListSkills,
-} from "./styles";
+
 
 const Landing: React.FC = () => {
   return (
@@ -33,9 +39,14 @@ const Landing: React.FC = () => {
         <Header>
           <PerfilImage src={logoImg} alt="Douglas Carvalho" />
           <h2>Douglas Carvalho</h2>
-          <span>
+          <p>
             Rio de Janeiro / Niterói
-          </span>
+
+          </p>
+          <p>
+            <ListSocialMedia>
+              <SocialLink href="https://br.linkedin.com/in/dscarvalho92?trk=profile-badge" target="_blank" ><FaLinkedin size={18} color="rgba(0,0,0,0.6)" /></SocialLink>
+            </ListSocialMedia></p>
         </Header>
 
         <Main>
@@ -59,6 +70,7 @@ const Landing: React.FC = () => {
         </Main>
 
         <Footer>
+
           <Link to="/experience">
             <FaBriefcase size={26} color="rgba(0,0,0,0.6)" />
           </Link>

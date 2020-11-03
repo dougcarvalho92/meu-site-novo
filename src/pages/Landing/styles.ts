@@ -60,7 +60,7 @@ export const Main = styled.div`
     text-align: center;
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     h1 {
       font-size: 3.75rem;
       font-weight: 900;
@@ -87,7 +87,7 @@ export const PerfilImage = styled.img`
   width: 80px;
   height: 80px;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 100px;
     height: 100px;
   }
@@ -119,7 +119,7 @@ export const Footer = styled.div`
     }
   }
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     a {
       width: 60px;
       height: 60px;
@@ -141,7 +141,7 @@ export const ListSkills = styled.div`
   grid-template-columns: repeat(9, 1fr);
   gap: 10px;
 
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     svg {
       height: 30px;
       width: 30px;
@@ -155,3 +155,22 @@ export const ListSkills = styled.div`
     }
   }
 `;
+export const SocialLink = styled.a`
+  width: 30px;
+  height: 30px;
+  background: #ffd666;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  margin: 5px;
+  &:hover {
+    background: #96feff;
+  }
+`;
+export const ListSocialMedia = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
