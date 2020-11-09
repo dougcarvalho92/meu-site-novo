@@ -14,6 +14,7 @@ export const Detail = styled.div`
   width: 100%;
   overflow: hidden;
   display: flex;
+  position: relative;
   flex-direction: column;
   + div {
     margin-top: 20px;
@@ -73,6 +74,8 @@ export const DetailFooter = styled.a`
   padding: 5px 24px;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
   color:#fff;
   &:hover {
     background-color:#12AFCB;
