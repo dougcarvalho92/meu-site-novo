@@ -1,13 +1,14 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Details = styled.div`
+export const Details = styled(motion.div)`
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
   }
 `;
-export const Detail = styled.div`
+export const Detail = styled(motion.div)`
   border: 1px solid #d3e2e5;
   border-radius: 10px;
   background: #ffffff;
@@ -76,8 +77,8 @@ export const DetailFooter = styled.a`
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
 
-  color:#fff;
+  color: #fff;
   &:hover {
-    background-color:#12AFCB;
+    background-color: #12afcb;
   }
 `;

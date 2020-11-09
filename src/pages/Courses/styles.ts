@@ -4,6 +4,7 @@ export const CoursesList = styled.div`
   flex: 1;
   overflow-y: scroll;
 `;
+export const SearchBar = styled.input``;
 export const CourseItem = styled.div`
   background-color: #fff;
   margin-bottom: 10px;
@@ -18,7 +19,12 @@ export const CourseItem = styled.div`
     font-size: 8px;
   }
 `;
-
+export const PageCounter = styled.span`
+  margin-top: 20px;
+  color: #333;
+  float: right;
+  width: 100%;
+`;
 export const LoadMore = styled.button`
   background-color: #fff;
   margin-top: 10px;
