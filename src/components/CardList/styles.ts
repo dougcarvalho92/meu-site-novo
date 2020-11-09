@@ -16,6 +16,7 @@ export const Detail = styled.div`
   display: flex;
   position: relative;
   flex-direction: column;
+  justify-content: space-between;
   + div {
     margin-top: 20px;
   }
@@ -74,8 +75,7 @@ export const DetailFooter = styled.a`
   padding: 5px 24px;
   text-decoration: none;
   transition: background-color 0.3s ease-in-out;
-  position: absolute;
-  bottom: 0;
+
   color:#fff;
   &:hover {
     background-color:#12AFCB;
