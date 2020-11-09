@@ -14,7 +14,7 @@ export const Detail = styled.div`
   width: 100%;
   overflow: hidden;
   display: flex;
-  position: relative;
+
   flex-direction: column;
   justify-content: space-between;
   + div {
