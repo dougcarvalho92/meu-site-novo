@@ -58,11 +58,13 @@ const Course: React.FC = () => {
       />
       <CardList data={courses} />
 
-      <PageCounter>
-        {selectedPage} / {pagesCount}
-      </PageCounter>
       {selectedPage < pagesCount && (
-        <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>
+        <div>
+          <PageCounter>
+            {selectedPage} / {pagesCount}
+          </PageCounter>
+          <LoadMore onClick={handleLoadMore}>Carregar mais</LoadMore>
+        </div>
       )}
     </PageContainer>
   );

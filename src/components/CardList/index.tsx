@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 // import { Container } from './styles';
 import {
@@ -44,12 +43,10 @@ const CardList: React.FC<CardProps> = ({ data }) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-    
             key={index}
           >
             <DateTime>
               <div>
- 
                 {handleFormatDate(item.endsAt)}{" "}
                 {handleFormatDate(item.startsAt)}
               </div>

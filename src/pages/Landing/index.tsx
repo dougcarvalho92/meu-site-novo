@@ -19,7 +19,6 @@ import {
   FaPhp,
   FaWordpress,
   FaSass,
-  FaUser,
   FaLinkedin
 
 } from "react-icons/fa";
