@@ -138,13 +138,18 @@ export const ListSkills = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 10px;
 
   @media (min-width: 768px) {
     svg {
       height: 30px;
       width: 30px;
+      transition: 0.2s ease;
+      &:hover {
+        fill: rgba(0, 0, 0, 0.6);
+        transform: scale(1.3);
+      }
     }
   }
 
@@ -173,4 +178,4 @@ export const ListSocialMedia = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
