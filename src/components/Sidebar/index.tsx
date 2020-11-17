@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import photo from "../../images/photo.svg";
 import { FiArrowLeft } from "react-icons/fi";
 import { AppSidebar } from "./styles";
@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
   const { goBack } = useHistory();
   return (
     <AppSidebar>
-      <img src={photo} alt="Happy" />
+      <Link to="/"><img src={photo} alt="Happy" /></Link>
 
       <footer>
         <button type="button" onClick={goBack}>
